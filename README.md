@@ -12,7 +12,7 @@ Transform Cursor AI into an enterprise-grade code generator with one command.
 
 ## Quick Start
 
-### Install
+### Step 1: Install Package
 
 ```bash
 # Using npm
@@ -25,20 +25,36 @@ yarn add cursor-rules-awesome
 pnpm add cursor-rules-awesome
 ```
 
-The `.cursorrules` file will be automatically copied to your project root during installation.
+### Step 2: Initialize in Your Project
 
-### Manual Installation (Alternative)
+After installation, run the init command to copy `.cursorrules` to your project root:
 
 ```bash
-# Copy directly to your project
-npx cursor-rules-awesome
+# Using npx (recommended)
+npx cursor-rules-init
+
+# Or if installed globally
+npm install -g cursor-rules-awesome
+cursor-rules-init
 ```
 
-### Verify Installation
+### Step 3: Verify Installation
 
 ```bash
-# Check if .cursorrules exists in your project
+# Check if .cursorrules exists in your project root
 ls -la .cursorrules
+
+# Should show: .cursorrules (170K, 4,854 lines)
+```
+
+### Alternative: Manual Copy
+
+```bash
+# Copy directly from node_modules
+cp node_modules/cursor-rules-awesome/.cursorrules .
+
+# Or use one-liner
+npm install cursor-rules-awesome && cp node_modules/cursor-rules-awesome/.cursorrules .
 ```
 
 ---
@@ -213,30 +229,62 @@ Teams using these standards report:
 
 ## Usage
 
-### After Installation
+### Complete Installation Workflow
 
-The `.cursorrules` file is automatically added to your project root during installation.
+```bash
+# 1. Install the package
+npm install cursor-rules-awesome
 
-**That's it!** Cursor AI will now use these standards when generating code.
+# 2. Run init command to copy .cursorrules to your project root
+npx cursor-rules-init
+
+# 3. Done! The .cursorrules file is now in your project root
+```
 
 ### Verify It's Working
 
-Ask Cursor AI to generate any code and notice:
+After running `cursor-rules-init`, check:
+
+```bash
+# File should exist in project root
+ls -la .cursorrules
+
+# File should be 4,800+ lines
+wc -l .cursorrules
+```
+
+Now ask Cursor AI to generate any code and notice:
 - Comprehensive error handling
 - Proper input validation
-- Security best practices
+- Security best practices (OWASP Top 10)
 - Test coverage considerations
 - Performance optimizations
-- Documentation standards
+- Production-ready code structure
+- Compliance with coding standards
 
 ### Customize (Optional)
 
 You can edit `.cursorrules` to:
-- Add project-specific rules
+- Add project-specific rules at the end
 - Comment out sections not relevant to your project
-- Adjust standards for your team
+- Adjust standards for your team's needs
 
-**Tip:** Keep a copy of the original for reference.
+**Tip:** Keep the original in `node_modules/cursor-rules-awesome/.cursorrules` for reference.
+
+### Update to Latest Version
+
+```bash
+# When new version is released
+npm update cursor-rules-awesome
+
+# Backup your customized .cursorrules
+mv .cursorrules .cursorrules.custom
+
+# Get latest standards
+npx cursor-rules-init
+
+# Merge your customizations back if needed
+```
 
 ---
 
@@ -335,7 +383,7 @@ React, Vue, Angular, Svelte, Flutter, Firebase, GraphQL, gRPC
 
 ## Example: Before vs After
 
-### Before (without cursor-rules-awesome)
+### Before (without standards)
 ```javascript
 app.post('/login', (req, res) => {
   const user = db.findUser(req.body.email);
@@ -354,7 +402,7 @@ app.post('/login', (req, res) => {
 - No audit logging
 - Multiple security vulnerabilities
 
-### After (with cursor-rules-awesome)
+### After (with standards)
 ```javascript
 app.post('/login', [
   rateLimiter({ max: 5, windowMs: 15 * 60 * 1000 }),
