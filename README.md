@@ -383,7 +383,7 @@ React, Vue, Angular, Svelte, Flutter, Firebase, GraphQL, gRPC
 
 ## Example: Before vs After
 
-### Before (without standards)
+### Before (without cursor-rules-awesome)
 ```javascript
 app.post('/login', (req, res) => {
   const user = db.findUser(req.body.email);
@@ -402,7 +402,7 @@ app.post('/login', (req, res) => {
 - No audit logging
 - Multiple security vulnerabilities
 
-### After (with standards)
+### After (with cursor-rules-awesome)
 ```javascript
 app.post('/login', [
   rateLimiter({ max: 5, windowMs: 15 * 60 * 1000 }),

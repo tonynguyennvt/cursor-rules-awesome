@@ -34,8 +34,8 @@ Thank you for your interest in contributing to the Cursor Rules Awesome project.
 ```bash
 # Fork repository on GitHub first
 # Then clone your fork
-git clone https://github.com/YOUR_USERNAME/cursor-ai-coding-standards.git
-cd cursor-ai-coding-standards
+git clone https://github.com/tonynguyennvt/cursor-rules-awesome.git
+cd cursor-rules-awesome
 ```
 
 **Create Branch:**
