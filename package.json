@@ -4,7 +4,7 @@
   "description": "World-class comprehensive coding standards for Cursor AI. 4,800+ lines covering 72 topics: OWASP Top 10, SRE practices, 15+ languages, 9 compliance frameworks (SOC 2, ISO 27001, HIPAA, PCI-DSS, GDPR). Perfect 10/10 rating.",
   "main": ".cursorrules",
   "bin": {
-    "cursor-standards": "./bin/cli.js"
+    "cursor-rules-init": "./bin/cli.js"
   },
   "files": [
     ".cursorrules",
@@ -13,6 +13,7 @@
     "LICENSE"
   ],
   "scripts": {
+    "postinstall": "node ./bin/cli.js",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
